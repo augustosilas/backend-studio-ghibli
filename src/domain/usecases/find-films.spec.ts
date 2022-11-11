@@ -45,4 +45,19 @@ describe('FindFilms Usecase', () => {
     const result = mockFilms()
     expect(result).toEqual(expected)
   })
+
+  test('should throw if FindFilmsRepository throw error', async () => {
+    const findFilmsRepositoryStub = new FindFilmsRepositoryStub()
+    const sut = new FindFilmsUsecase(findFilmsRepositoryStub)
+
+    const params: FindFilms.Input = {
+      limit: 10,
+      offset: 1
+    }
+
+    jest.spyOn(findFilmsRepositoryStub, 'find').mockImplementationOnce(() => { throw new Error() })
+
+    const promise = sut.find(params)
+    await expect(promise).rejects.toThrow()
+  })
 })
