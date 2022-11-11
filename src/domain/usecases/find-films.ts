@@ -8,7 +8,6 @@ export class FindFilmsUsecase implements FindFilms {
   ) { }
 
   async find(input: FindFilms.Input): Promise<FindFilms.Result> {
-    await this.findFilmsRepository.find(input)
-    return
+    return await this.findFilmsRepository.find(input)
   }
 }

@@ -10,7 +10,7 @@ export namespace FindFilms {
 
   export type Result = undefined | Array<{
     title: string
-    orginalTitle: string
+    originalTitle: string
     description: string,
     releaseDate: string,
     score: string,
