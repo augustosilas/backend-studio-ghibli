@@ -66,7 +66,19 @@ describe('SaveFilms Usecase', () => {
 
     await sut.save()
     const expected = mockFilms()
-    
+
     expect(addSpy).toHaveBeenCalledWith(expected)
+  })
+
+  test('should throw if AddFilmsRepository throws', async () => {
+    const findFilmsGatewayStub = new FindFilmsGatewayStub()
+    const addFilmsRepositoryStub = new AddFilmsRepositoryStub()
+    const sut = new SaveFilmsUsecase(findFilmsGatewayStub, addFilmsRepositoryStub)
+
+    jest.spyOn(addFilmsRepositoryStub, 'add').mockImplementationOnce(() => { throw new Error() })
+
+    const result = sut.save()
+
+    expect(result).rejects.toThrow(new Error())
   })
 })
