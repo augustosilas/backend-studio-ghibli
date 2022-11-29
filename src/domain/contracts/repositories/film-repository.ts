@@ -8,11 +8,23 @@ export namespace FindFilmsRepository {
     offset?: number
   }
 
-  export type Result = undefined | Array<{
-    title: string
-    originalTitle: string
-    description: string,
-    releaseDate: string,
-    score: string,
-  }>
+  export type Result = undefined | Array<Film>
+}
+
+export interface AddFilmsRepository {
+  add: (input: AddFilmsRepository.Input) => Promise<AddFilmsRepository.Result>
+}
+
+export namespace AddFilmsRepository {
+  export type Input = Array<Film>
+
+  export type Result = void
+}
+
+type Film = {
+  title: string
+  originalTitle: string
+  description: string,
+  releaseDate: string,
+  score: string,
 }
