@@ -1,4 +1,4 @@
-import { FindFilmsRepository } from "domain/contracts/repositories/film-repository";
+import { FindFilmsRepository } from "../../domain/contracts/repositories/film-repository";
 import { FindFilms } from "../contracts/usecases/find-films";
 
 export class FindFilmsUsecase implements FindFilms {
