@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  pg-films:
+    image: postgres
+    container_name: films-pg
+    restart: always
+    networks:
+      - net-bridge
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=api-films
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  api:
+    container_name: get-films
+    build: .
+    networks:
+      - net-bridge
+    command: "npm start"
+    ports:
+      - 3000:3000
+    environment:
+      - POSTGRES_HOST=pg-films
+      - POSTGRES_PORT=5432
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_DATABASE=api-films
+      - PORT=3000
+    depends_on:
+      - pg-films
+
+networks:
+  net-bridge:
+    driver: bridge
