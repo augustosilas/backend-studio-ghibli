@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "start": "node main/index.js",
     "start:dev": "ts-node-dev --respawn --transpile-only src/main/index.ts",
     "test": "jest --silent --passWithNoTests --noStackTrace --runInBand",
     "test:unit": "npm run test -- --watch -c jest-unit.config.js",
