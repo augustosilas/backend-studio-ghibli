@@ -16,7 +16,7 @@ type Field = keyof ResultApi
 export class StudioGhibliApi implements FindFilmsGateway {
   private readonly baseUrl: string
   constructor() {
-    this.baseUrl = 'https://ghibliapi.herokuapp.com/films'
+    this.baseUrl = process.env.STUDIO_GHIBLI_URL
   }
 
   async find({ limit = 50 }: FindFilmsGateway.Input): Promise<FindFilmsGateway.Result> {
