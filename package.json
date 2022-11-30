@@ -7,7 +7,7 @@
     "build": "rimraf dist && tsc",
     "up": "npm run build && docker compose up",
     "down": "docker compose down",
-    "start": "node dist/src/main/index.js",
+    "start": "node src/main/index.js",
     "start:dev": "ts-node-dev --respawn --transpile-only src/main/index.ts",
     "test": "jest --silent --passWithNoTests --noStackTrace --runInBand",
     "test:unit": "npm run test -- --watch -c jest-unit.config.js",
