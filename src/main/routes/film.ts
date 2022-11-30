@@ -5,6 +5,6 @@ import { makeFindFilmsController } from "../../main/factories/application/contro
 import { makeSaveFilmsController } from "../../main/factories/application/controllers/save-films-controller"
 
 export default (router: Router): void => {
-  router.get('/films', adapt(makeFindFilmsController()))
-  router.post('/films', adapt(makeSaveFilmsController()))
+  router.get(`/api/${process.env.API_VERSION}/films`, adapt(makeFindFilmsController()))
+  router.post(`/api/${process.env.API_VERSION}/films`, adapt(makeSaveFilmsController()))
 }

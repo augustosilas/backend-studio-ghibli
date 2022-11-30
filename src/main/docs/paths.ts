@@ -1,5 +1,5 @@
 import { getFilmsPath } from './paths/films-path'
 
 export default {
-  '/films': getFilmsPath,
+  '/api/v1/films': getFilmsPath,
 }

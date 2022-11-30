@@ -28,6 +28,8 @@ services:
       - POSTGRES_USERNAME=postgres
       - POSTGRES_DATABASE=api-films
       - PORT=3000
+      - API_VERSION=v1
+      - STUDIO_GHIBLI_URL=https://ghibliapi.herokuapp.com/films
     depends_on:
       - pg-films
 
