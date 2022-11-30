@@ -1,5 +1,7 @@
 # Backend Studio Ghibli
 
+Doc: http://localhost:3000/api-docs/
+
 Esta é uma API para buscar filmes no banco de dados local mas obtidos através da API do Studio Ghibli
 
 ## Uso
