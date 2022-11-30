@@ -7,6 +7,7 @@
     "build": "rimraf dist && tsc",
     "up": "npm run build && docker compose up",
     "db:up": "docker run --name pg-films -p 5432:5432 -d -e POSTGRES_DB=api-films -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres",
+    "db:down": "docker stop pg-films",
     "down": "docker compose down",
     "start": "node src/main/index.js",
     "start:dev": "ts-node-dev --respawn --transpile-only src/main/index.ts",
