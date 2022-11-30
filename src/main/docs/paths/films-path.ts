@@ -14,6 +14,26 @@ export const getFilmsPath = {
   get: {
     tags: ['Films'],
     summary: 'API para buscas os filmes no banco de dados local',
+    parameters: [
+      {
+        in: "query",
+        name: "limit",
+        description: "Limite de filmes que poderão ser retornados por página",
+        required: false,
+        schema: {
+          type: "integer",
+        }
+      },
+      {
+        in: "query",
+        name: "offset",
+        description: "Número dá página",
+        required: false,
+        schema: {
+          type: "integer",
+        }
+      },
+    ],
     responses: {
       200: {
         description: 'Success',
